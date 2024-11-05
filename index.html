@@ -1,0 +1,562 @@
+<html><head><base href="/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Psicólogo | Saúde Mental & Bem-estar</title>
+
+<style>
+:root {
+  --primary: #2C3E50; /* Rich navy blue */
+  --secondary: #34495E; /* Darker blue */
+  --accent: #9B59B6; /* Elegant purple */
+  --light: #F5F6FA;
+  --dark: #2D3436;
+  --gradient: linear-gradient(135deg, #2C3E50, #34495E);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.7;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--primary);
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.9)),
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%239B59B6" fill-opacity="0.1" d="M0,160L48,170.7C96,181,192,203,288,208C384,213,480,203,576,181.3C672,160,768,128,864,128C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+}
+
+.hero-content {
+  text-align: center;
+  color: var(--light);
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+    background: #C39BD3; /* Lighter purple */
+    border: none;
+    color: white;
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    animation: colorChange 3s infinite;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(155, 89, 182, 0.3);
+}
+
+/* Add this new keyframes animation */
+@keyframes colorChange {
+    0% {
+        background: #C39BD3; /* Light purple */
+    }
+    33% {
+        background: #BB8FCE; /* Medium purple */
+    }
+    66% {
+        background: #A569BD; /* Darker purple */
+    }
+    100% {
+        background: #C39BD3; /* Back to light purple */
+    }
+}
+
+.section {
+  position: relative;
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-items: center;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 15px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.card h3 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary);
+  position: relative;
+  padding-bottom: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.footer {
+  background: var(--primary);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
+.social-proof {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.testimonials {
+  padding: 2rem 0;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+}
+
+.testimonials h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary);
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.testimonials h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.testimonial-carousel {
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.testimonial-slide {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #757575;
+}
+
+.testimonial-info {
+  text-align: left;
+}
+
+.testimonial-author {
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.testimonial-rating {
+  color: #FBC02D;
+  margin-top: 0.5rem;
+}
+
+.testimonial-content {
+  text-align: left;
+  color: #666;
+  font-style: italic;
+}
+
+.whatsapp-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: #25D366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.whatsapp-button:hover {
+  background: #128C7E;
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header class="navbar">
+  <nav>
+    <div class="logo">Dr. Nome do Psicólogo</div>
+    <div class="nav-links">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="floating-shapes">
+    <svg class="shape" width="50" height="50" viewBox="0 0 50 50">
+      <circle cx="25" cy="25" r="20" fill="#3498db"/>
+    </svg>
+    <svg class="shape" width="50" height="50" viewBox="0 0 50 50">
+      <rect x="10" y="10" width="30" height="30" fill="#2ecc71"/>
+    </svg>
+    <svg class="shape" width="50" height="50" viewBox="0 0 50 50">
+      <polygon points="25,5 45,40 5,40" fill="#e74c3c"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <h1>Cuidando da Sua Saúde Mental</h1>
+    <p>Atendimento humanizado e profissional para ajudar você a alcançar seu bem-estar emocional</p>
+    <a href="https://api.whatsapp.com/send?phone=SEUNUMERO" class="cta-button">Agende sua Consulta</a>
+  </div>
+</section>
+
+<section class="section" id="sobre">
+  <h2>Sobre Mim</h2>
+  <p>Com mais de X anos de experiência, dedico-me a proporcionar um ambiente seguro e acolhedor para meus pacientes. Minha abordagem é baseada em evidências científicas e personalizada para cada indivíduo.</p>
+  <div class="social-proof">
+    <div class="stat-card">
+      <div class="stat-number">500+</div>
+      <div class="stat-label">Pacientes Atendidos</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">10+</div>
+      <div class="stat-label">Anos de Experiência</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">98%</div>
+      <div class="stat-label">Satisfação</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="servicos">
+  <h2>Serviços</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Terapia Individual</h3>
+      <p>Atendimento personalizado focado em suas necessidades específicas, ajudando você a superar desafios e alcançar seus objetivos.</p>
+    </div>
+    <div class="card">
+      <h3>Terapia de Casal</h3>
+      <p>Auxílio para casais que buscam melhorar sua comunicação e fortalecer seu relacionamento.</p>
+    </div>
+    <div class="card">
+      <h3>Atendimento Online</h3>
+      <p>Sessões convenientes e eficazes através de plataformas seguras de videoconferência.</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2>O que dizem nossos pacientes</h2>
+  <div class="testimonial-carousel">
+    <div class="testimonial-slide active">
+      <div class="testimonial-header">
+        <div class="testimonial-avatar">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="testimonial-info">
+          <div class="testimonial-author">Maria S.</div>
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-content">
+        <p>"A terapia mudou completamente minha perspectiva de vida. Excelente profissional, ambiente acolhedor e resultados transformadores."</p>
+      </div>
+    </div>
+    <!-- Add more testimonial slides with the same structure -->
+  </div>
+</section>
+
+<section class="section" id="contato">
+  <h2>Contato</h2>
+  <form class="contact-form">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text" id="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+    </div>
+    <div class="form-group">
+      <label for="message">Mensagem</label>
+      <textarea id="message" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="cta-button">Enviar Mensagem</button>
+  </form>
+</section>
+
+<footer class="footer">
+  <p>© 2024 Dr. Nome do Psicólogo - CRP XX/XXXXX</p>
+  <p>Endereço do Consultório - Cidade/Estado</p>
+</footer>
+
+<a href="https://api.whatsapp.com/send?phone=SEUNUMERO" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scroll para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Formulário de contato
+    const form = document.querySelector('.contact-form');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        // Aqui você pode adicionar a lógica para enviar o formulário
+        alert('Obrigado pelo contato! Retornaremos em breve.');
+        form.reset();
+    });
+});
+
+// Animate stats on scroll
+function animateStats() {
+  const stats = document.querySelectorAll('.stat-number');
+  stats.forEach(stat => {
+    const target = parseInt(stat.innerText);
+    let current = 0;
+    const increment = target / 50;
+    const updateCount = () => {
+      if(current < target) {
+        current += increment;
+        stat.innerText = Math.round(current) + (stat.innerText.includes('+') ? '+' : '%');
+        setTimeout(updateCount, 20);
+      } else {
+        stat.innerText = target + (stat.innerText.includes('+') ? '+' : '%');
+      }
+    }
+    updateCount();
+  });
+}
+
+// Intersection Observer for animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      if (entry.target.classList.contains('social-proof')) {
+        animateStats();
+      }
+      entry.target.classList.add('animated');
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.section, .card, .social-proof').forEach(el => observer.observe(el));
+
+// Carousel functionality
+const testimonials = document.querySelectorAll('.testimonial-slide');
+let currentSlide = 0;
+
+function showNextTestimonial() {
+  testimonials[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide + 1) % testimonials.length;
+  testimonials[currentSlide].classList.add('active');
+}
+
+setInterval(showNextTestimonial, 5000);
+</script>
+
+</body></html>
